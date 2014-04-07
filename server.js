@@ -3,7 +3,7 @@ var lessMiddleware = require('less-middleware');
 var PORT = process.env.port || 1337;
 
 var app = connect()
-    .use(lessMiddleware(__dirname + '/public'))
+    .use(lessMiddleware({ src: __dirname + '/public', }))
     .use(connect.static('public'));
 
 http.createServer(app).listen(PORT);
